@@ -10,7 +10,7 @@
     "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix --report-unused-disable-directives --max-warnings 0 ./src && stylelint --fix \"src/**/*.{css,scss}\"",
     "preview": "vite preview",
-    "prepare": "cd .. && cd .. && cd .. && husky 前端/vite-react-ts/vite-project/.husky"
+    "prepare": "husky"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts}": [
