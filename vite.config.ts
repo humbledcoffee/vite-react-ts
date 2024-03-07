@@ -23,7 +23,21 @@ export default defineConfig({
   base: isProduction ? CDN_URL : '/',
   plugins: [
     svgr(),
-    react(),
+    react({
+      // 加入 babel 插件
+      // 以下插件包都需要提前安装
+      // 当然，通过这个配置你也可以添加其它的 Babel 插件
+      plugins: [
+        // 适配 styled-component
+        [
+          'babel-plugin-styled-components',
+          {
+            displayName: true,
+            fileName: false
+          }
+        ]
+      ]
+    }),
     eslint(),
     UnoCss(),
     viteStylelint({
