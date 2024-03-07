@@ -8,7 +8,7 @@
     "build": "tsc && vite build",
     "lint:script": "eslint --ext .js,.jsx,.ts,.tsx --fix --report-unused-disable-directives --max-warnings 0 ./src",
     "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix --report-unused-disable-directives --max-warnings 0 ./src && stylelint --fix \"src/**/*.{css,scss}\"",
+    "lint": "npm run lint:script && npm run lint:style",
     "preview": "vite preview",
     "prepare": "husky"
   },
