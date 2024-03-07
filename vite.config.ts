@@ -9,12 +9,15 @@ import react from '@vitejs/plugin-react-swc';
 // 用 normalizePath 解决 window 下的路径问题
 const variablePath = normalizePath(path.resolve('./src/variable.scss'));
 import UnoCss from 'unocss/vite';
+//引入组件化svg
+import svgr from 'vite-plugin-svgr';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // 手动指定项目根目录位置
   // root: path.join(__dirname, 'src')
   plugins: [
+    svgr(),
     react(),
     eslint(),
     UnoCss(),
@@ -23,6 +26,12 @@ export default defineConfig({
       exclude: ['node_modules']
     })
   ],
+  resolve: {
+    // 路径别名配置
+    alias: {
+      '@assets': path.join(__dirname, 'src/assets')
+    }
+  },
   // css 相关的配置
   css: {
     modules: {
