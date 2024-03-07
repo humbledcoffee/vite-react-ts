@@ -11,11 +11,16 @@ const variablePath = normalizePath(path.resolve('./src/variable.scss'));
 import UnoCss from 'unocss/vite';
 //引入组件化svg
 import svgr from 'vite-plugin-svgr';
+// 是否为生产环境，在生产环境一般会注入 NODE_ENV 这个环境变量，见下面的环境变量文件配置
+const isProduction = process.env.NODE_ENV === 'production';
+// 填入项目的 CDN 域名地址
+const CDN_URL = 'xxxxxx';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   // 手动指定项目根目录位置
   // root: path.join(__dirname, 'src')
+  base: isProduction ? CDN_URL : '/',
   plugins: [
     svgr(),
     react(),
