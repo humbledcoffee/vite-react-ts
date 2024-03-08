@@ -74,5 +74,9 @@ export default defineConfig({
         })
       ]
     }
+  },
+  build: {
+    // 配置vite静态资源转换成base64的阈值为8kb 默认是4kb
+    assetsInlineLimit: 8 * 1024
   }
 });
