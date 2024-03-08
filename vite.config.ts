@@ -5,6 +5,8 @@ import viteStylelint from 'vite-plugin-stylelint';
 import { defineConfig, normalizePath } from 'vite';
 // 如果类型报错，需要安装 @types/node: pnpm i @types/node -D
 import react from '@vitejs/plugin-react-swc';
+//引入图片压缩功能
+import viteImagemin from 'vite-plugin-imagemin';
 // 全局 scss 文件的路径
 // 用 normalizePath 解决 window 下的路径问题
 const variablePath = normalizePath(path.resolve('./src/variable.scss'));
@@ -43,6 +45,28 @@ export default defineConfig({
     viteStylelint({
       // 对某些文件排除检查
       exclude: ['node_modules']
+    }),
+    viteImagemin({
+      // 无损压缩配置，无损压缩下图片质量不会变差
+      optipng: {
+        optimizationLevel: 7
+      },
+      // 有损压缩配置，有损压缩下图片质量可能会变差
+      pngquant: {
+        quality: [0.8, 0.9]
+      },
+      // svg 优化
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      }
     })
   ],
   resolve: {
