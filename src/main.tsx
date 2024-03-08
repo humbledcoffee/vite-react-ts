@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import 'virtual:uno.css';
 import './index.css';
+//svg雪碧图插件
+import 'virtual:svg-icons-register';
 //import 语句即代表一个 HTTP 请求
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
