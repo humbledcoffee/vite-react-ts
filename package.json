@@ -10,7 +10,8 @@
     "lint:style": "stylelint --fix \"src/**/*.{css,scss}\"",
     "lint": "npm run lint:script && npm run lint:style",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "patch-package"
   },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts}": [
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.0.3",
     "@commitlint/config-conventional": "^19.0.3",
+    "@milahu/patch-package": "^6.4.14",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",

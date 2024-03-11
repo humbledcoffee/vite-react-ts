@@ -27,6 +27,19 @@ const CDN_URL = 'xxxxxx';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // optimizeDeps: {
+  //  自定义依赖预构建的入口文件
+  //   entries: ['./src/main.vue']
+  // 配置为一个字符串数组，将 `lodash-es` 和 `vue`两个包强制进行预构建
+  //  include: ["lodash-es", "vue"]
+  // },
+  // include: [
+  // 强制对间接依赖进行预构建
+  // 间接依赖的声明语法，通过`>`分开, 如`a > b`表示 a 中依赖的 b
+  //     "@loadable/component > hoist-non-react-statics",
+  //   ];
+  //   手动排除依赖包预构建
+  //   exclude: ["@loadable/component"];
   // 手动指定项目根目录位置
   // root: path.join(__dirname, 'src')
   base: isProduction ? CDN_URL : '/',
